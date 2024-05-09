@@ -200,30 +200,28 @@ if __name__ == '__main__':
     boardState = BoardState()
 
 #   Set enemy cards
-    enemy_cards = [Card(name="Sunfish", power=0, health=1), None, None, None,
-                   None, None, Card(name="Firepup", power=1, health=1),  None]
+    enemy_cards = [None, None, Card(name="Bunnyhop", power=1, health=1),  Card(name="Foxfire", power=1, health=1),
+                   None, None, None, None]
     boardState.set_enemy_cards(enemy_cards)
 
 #   Set player cards
-    player_cards_board = [None, None, None, None]
+    player_cards_board = [Card(name="CandleMoth", power=3, health=2, fire_cost=1, has_spirit=1, effects=['WEAKNESS']),  None, None, None]
 
-    player_cards_hand = [Card(name="Smokepuff", power=0, health=2, fire_cost=2),]
+    player_cards_hand = [Card(name="Ottermite", power=1, health=3, fire_cost=2, has_fire=1),]
 
-    player_cards_deck = [Card(name="Ghostshrew", power=2, health=2, fire_cost=2),
-                         Card(name="Batmunch", power=2, health=1, fire_cost=1),
-                         Card(name="Wisp Gazelle", power=0, health=1, fire_cost=0, spirit_cost=1),]
+    player_cards_deck = [Card(name="Koalapup", power=1, health=2, fire_cost=1, has_fire=1, has_spirit=1),
+                         ]
 
-    dead_cards = [Card(name="Weasel", power=1, health=1, fire_cost=0, spirit_cost=2),
-                  Card(name="Scorpid", power=2, health=1, fire_cost=2, has_spirit=1),]
+    dead_cards = [Card(name="Sunfish", power=0, health=1, fire_cost=1)]
 
-    spirits = 17
-    hamsters_remaining = 8
+    spirits = 9
+    hamsters_remaining = 0
     has_drawn = False
 
     boardState.set_player_cards(player_cards_board, player_cards_hand, player_cards_deck, spirits, hamsters_remaining, has_drawn)
 
 #   Set health
-    boardState.set_health(player_health=5, enemy_health=3)
+    boardState.set_health(player_health=2, enemy_health=5)
 
 #   Setup problem
 
@@ -243,7 +241,7 @@ if __name__ == '__main__':
     i = 10
 
     while result is None:
-        print(f'Searching for goal_type {i}\n\n')
+        print(f'Searching for goal with a threshold greater than or equal to:  {i}\n\n')
         result = my_best_first_graph_search(Cardio(boardState, goal_threshold=i), True)
         if result is None:
             print("None")
