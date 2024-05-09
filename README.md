@@ -10,8 +10,8 @@ Cardio[2] is a free open-source card game based on other popular card games like
 Players begin the game with three cards in hand and no cards on the board.  At the start of the player's turn, they must choose to draw from one of two decks, their own deck or a ten-card deck of all hamsters.  Hamsters have only one health and do no damage, but they are the only card that can be played for free without needing to sacrifice another card.  Once players have drawn a card they may play as many cards from their hand as they can.  At the end of the turn, the player’s cards fight the enemy cards across from them.  If any card attacks an empty spot, the person who owns that spot (player or enemy) takes that much damage.  If any card dies and there is still leftover damage that damage carries through to the player or enemy.  After this, the player takes their next turn starting from choosing what deck to draw from.  Turns repeat until someone runs out of health, at that point, they lose and their opponent is the winner.  
 
 
-
-Figure 1: Cardio Gameplay
+![Image of Cardio Gameplay](Figure%201%20Cardio%20Gameplay.png)
+_Figure 1: Cardio Gameplay_
 ## Explanation of Terms
 In this section, we will briefly explain some terms that might not be known to those outside the gaming scene. Specifically, both terms are game genre titles.
 ### Deck-Building
@@ -38,8 +38,8 @@ In this section, we will go in-depth about the software that we made.  We will s
 In this section we will go through each of the main files for our program and discuss the major functions or classes in each and what they do.  You can also see a diagram below showing all the major components:
 
 
-
-Figure 2: Software Components
+![Image of Software Components](Figure%202%20Software%20Components.png)
+_Figure 2: Software Components_
 ### Main
 The main file holds the following relevant pieces: 
 - Main (Function)
@@ -85,12 +85,13 @@ This is an object class that is used to store all the info about a given card in
 ## UI
 The UI for this software can be broken up into the UI the user uses for inputting the boardstate and the output UI.  However the first is the user directly editing the main function and the second is printed out directly to the terminal.
 
-Figure 3: Cardio Game UI
+![Image Explaining Cardio UI](Figure%203%20Cardio%20Game%20UI.png)
+_Figure 3: Cardio Game UI_
 ### Entering the Board State
 Before running the AI the board state for the given turn must be manually entered on the main function on the Main file between lines 202 and lines 226.  The player must enter data for the enemy cards, player cards (on the board, in their hand, and deck), the number of spirits the player has, the number of hamsters left in the hamster deck, and the health of both the player and the enemy.
 
-
-Figure 4: Where the user enters the board state
+![Image Explaining where the user enters the board state](Figure%204%20Where%20the%20user%20enters%20the%20board%20state.png)
+_Figure 4: Where the user enters the board state_
 ### Enemy Cards
 Location is important as it should mirror the exact location of the enemy cards in the game.  Any position not filled with a card should be filled with None.  Lastly, the rows are reversed, so the bottom row in the game is the top row in the code (line 203)
 
@@ -114,14 +115,14 @@ Simply change these values to represent given values in the Cardio game[2].
 ### Reading the Output
 The output is printed to the terminal in two parts.  The first part is the search and the second part is the result once it finds one.
 
-
-Figure 5: Example Output
+![Image of Example Output](Figure%205%20Example%20Output.png)
+_Figure 5: Example Output_
 
 #### The Search
 This shows both what threshold it is using as well as how many nodes it has explored.  For more complicated turns these may need to search upwards of 1k nodes before it finds a result.  If no result is found it tries again with a lower threshold.
 
-
-Figure 5: Where the numbers in the outputs are referring to
+![Image of Where the number are referring to](Figure%206%20Where%20the%20numbers%20in%20the%20ouptus%20are%20referring%20to.png)
+_Figure 6: Where the numbers in the outputs are referring to_
 
 #### The Result
 The result lists out the actions needed to get to that goal.  For actions like PLAYCARD see the above image for what slots the numbers mean.
