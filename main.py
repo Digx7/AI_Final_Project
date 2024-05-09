@@ -200,28 +200,33 @@ if __name__ == '__main__':
     boardState = BoardState()
 
 #   Set enemy cards
-    enemy_cards = [None, None, Card(name="Bunnyhop", power=1, health=1),  Card(name="Foxfire", power=1, health=1),
-                   None, None, None, None]
+    enemy_cards = [None, None, None,  None,
+                   Card(name="Slothbear", power=0, health=2), None, None, None]
     boardState.set_enemy_cards(enemy_cards)
 
 #   Set player cards
-    player_cards_board = [Card(name="CandleMoth", power=3, health=2, fire_cost=1, has_spirit=1, effects=['WEAKNESS']),  None, None, None]
+    player_cards_board = [None,  None, None, None]
 
-    player_cards_hand = [Card(name="Ottermite", power=1, health=3, fire_cost=2, has_fire=1),]
+    player_cards_hand = [Card(name="TwinCats", power=1, health=2, fire_cost=2, has_spirit=1),Card(name="Bunnyhop", power=1, health=1, fire_cost=1, has_fire=1),Card(name="Sunfish", power=0, health=1, fire_cost=1),]
 
-    player_cards_deck = [Card(name="Koalapup", power=1, health=2, fire_cost=1, has_fire=1, has_spirit=1),
+    player_cards_deck = [
+                         Card(name="Weasel", power=1, health=1, fire_cost=1),
+
+                         Card(name="Shadow Rat", power=1, health=2, fire_cost=1),
+                         Card(name="Smokepuff", power=0, health=2, fire_cost=1),
+
                          ]
 
-    dead_cards = [Card(name="Sunfish", power=0, health=1, fire_cost=1)]
+    dead_cards = []
 
     spirits = 9
-    hamsters_remaining = 0
+    hamsters_remaining = 10
     has_drawn = False
 
     boardState.set_player_cards(player_cards_board, player_cards_hand, player_cards_deck, spirits, hamsters_remaining, has_drawn)
 
 #   Set health
-    boardState.set_health(player_health=2, enemy_health=5)
+    boardState.set_health(player_health=5, enemy_health=5)
 
 #   Setup problem
 
